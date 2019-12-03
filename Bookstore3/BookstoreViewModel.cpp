@@ -11,10 +11,16 @@ namespace winrt::Bookstore3::implementation
 	BookstoreViewModel::BookstoreViewModel()
 	{
 		m_bookSku = winrt::make<Bookstore3::implementation::BookSku>(L"Atticus");
+		m_bookSkus = winrt::single_threaded_observable_vector<Bookstore3::BookSku>();
+		m_bookSkus.Append(m_bookSku);
 	}
 
 	Bookstore3::BookSku BookstoreViewModel::BookSku()
 	{
 		return m_bookSku;
+	}
+	Windows::Foundation::Collections::IObservableVector<Bookstore3::BookSku> BookstoreViewModel::BookSkus()
+	{
+		return m_bookSkus;
 	}
 }

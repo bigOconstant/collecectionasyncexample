@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button Click="ClickHandler" Content="{x:Bind MainViewModel.BookSku.Title, Mode=OneWay}"/>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Button Click="ClickHandler" Content="Add Book"/>
+        <ListBox ItemsSource="{x:Bind MainViewModel.BookSkus}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="local:BookSku">
+                    <TextBlock Text="{x:Bind Title, Mode=OneWay}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+        <ProgressRing Margin="0,5,20,0" x:Name="pring" IsActive="False" />
     </StackPanel>
 </Page>

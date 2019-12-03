@@ -13,8 +13,10 @@ namespace winrt::Bookstore3::implementation
 		BookstoreViewModel();
 
 		Bookstore3::BookSku BookSku();
+		Windows::Foundation::Collections::IObservableVector<Bookstore3::BookSku> BookSkus();
 
 	private:
 		Bookstore3::BookSku m_bookSku{ nullptr };
+		Windows::Foundation::Collections::IObservableVector<Bookstore3::BookSku> m_bookSkus;
 	};
 }
